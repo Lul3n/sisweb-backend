@@ -12,7 +12,7 @@ productRouter.get('/getallproducts/', getAllProducts);
 
 productRouter.get('/getproductbyid/:id', getProductById);  
 
-productRouter.post('/createproduct/', createProduct);  
+productRouter.post('/createproduct', createProduct);  
 
 productRouter.patch('/updateproduct/:id', modifyProduct);  
 
