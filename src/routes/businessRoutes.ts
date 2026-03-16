@@ -1,5 +1,12 @@
 import{Router} from 'express';
+import{createBusiness, updateBusiness, getBusinessById, getAllBusiness, deleteBusiness} from '../controllers/businessControler';
 
-const businessRoutes:Router = Router()
+const businessRouter:Router = Router();
 
-export default businessRoutes;
+businessRouter.post('./createbusiness', createBusiness);
+businessRouter.patch('./updatebusiness/:id',updateBusiness);
+businessRouter.get('./getbusinessbyid/:id',getBusinessById);
+businessRouter.get('./getallbusiness', getAllBusiness);
+businessRouter.delete('./deletebusiness/:id', deleteBusiness);
+
+export default businessRouter;
