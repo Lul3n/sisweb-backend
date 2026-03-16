@@ -1,6 +1,7 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, HasMany} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
+import { User } from './user';
 
 interface BusinessAttributes{ 
   id: number; 
@@ -16,7 +17,7 @@ interface BusinessCreationAttributes extends Optional<BusinessAttributes, 'id'>{
 @Table ({ 
   tableName: "Business" 
 }) 
-export class Product extends Model<BusinessAttributes, BusinessCreationAttributes>{ 
+export class Business extends Model<BusinessAttributes, BusinessCreationAttributes>{ 
 
 
 // Here, TS infers Data Type from the JS Type 
@@ -47,4 +48,7 @@ export class Product extends Model<BusinessAttributes, BusinessCreationAttribute
    @UpdatedAt 
    @Column 
    updatedAt!: Date; 
+
+   @HasMany(() => User)
+   user!: User[];
 } 
