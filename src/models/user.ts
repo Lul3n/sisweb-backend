@@ -1,5 +1,5 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, HasMany, HasOne} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, ForeignKey, BelongsTo} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize';
 import {Business} from './business';
 
@@ -45,6 +45,11 @@ export class User extends Model<UserAttributes, UserCreationAttributes>{
    @Column 
    updatedAt!: Date; 
 
-   @HasOne(() => Business)
-   declare business?: Business;
-} 
+   @ForeignKey(() => Business)
+   @Column
+   businessId!: number;
+
+   @BelongsTo(() => Business)
+   business!: Business;
+
+}
