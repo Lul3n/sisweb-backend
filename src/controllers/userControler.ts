@@ -11,7 +11,7 @@ export const createUser : RequestHandler = (req:Request, res:Response) => {
         }); 
     } 
 
-    const user = { ...req.body }; 
+    const {isAdmin, ...user} = { ...req.body }; 
       User.create(user) 
         .then((data: User | null) => { 
           res.status(200).json({ 

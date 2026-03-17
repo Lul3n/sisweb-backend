@@ -1,5 +1,5 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, ForeignKey, BelongsTo} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, ForeignKey, BelongsTo, BeforeUpdate} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize';
 import {Business} from './business';
 
@@ -35,7 +35,14 @@ export class User extends Model<UserAttributes, UserCreationAttributes>{
    mail!: string; 
 
    @Column 
-   isAdmin!: boolean; 
+   isAdmin!: boolean;
+   
+   @BeforeUpdate
+    static preventAdminChange(instance: User) {
+      if (instance.changed('isAdmin')) {
+        throw new Error("No tienes permiso para cambiar el estatus de administrador.");
+      }
+    }
 
    @CreatedAt 
    @Column 

@@ -49,6 +49,7 @@ export class Business extends Model<BusinessAttributes, BusinessCreationAttribut
    @Column 
    updatedAt!: Date; 
 
+
    @HasMany(() => User)
    user!: User[];
 } 
