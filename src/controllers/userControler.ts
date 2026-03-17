@@ -106,15 +106,8 @@ export const getAllUsers : RequestHandler = (req:Request, res:Response) => {
 
 //Get Users by Business Id
 export const getUserbyBusinessId : RequestHandler = (req:Request, res:Response) => {
-if(!req.body){
-    return res.status(400).json({ 
-      status: "error", 
-      message: "Content can not be empty.", 
-      payload: null, 
-    }); 
-}
 
-  User.findAll({ where: { id: req.params.id } }) 
+  User.findAll({ where: { businessId : req.params.id } }) 
   .then((data: User[]) => { 
       return res.status(200).json({ 
              status: "success", 

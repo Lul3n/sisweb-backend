@@ -8,6 +8,7 @@ interface UserAttributes {
     number: string;
     mail: string;
     isAdmin: boolean;
+    businessId: number;
 }
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {
 }
@@ -17,6 +18,7 @@ export declare class User extends Model<UserAttributes, UserCreationAttributes> 
     number?: string;
     mail: string;
     isAdmin: boolean;
+    static preventAdminChange(instance: User): void;
     createdAt: Date;
     updatedAt: Date;
     businessId: number;

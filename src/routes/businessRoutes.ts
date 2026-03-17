@@ -3,10 +3,10 @@ import{createBusiness, updateBusiness, getBusinessById, getAllBusiness, deleteBu
 
 const businessRouter:Router = Router();
 
-businessRouter.post('./createbusiness', createBusiness);
-businessRouter.patch('./updatebusiness/:id',updateBusiness);
-businessRouter.get('./getbusinessbyid/:id',getBusinessById);
-businessRouter.get('./getallbusiness', getAllBusiness);
-businessRouter.delete('./deletebusiness', deleteBusiness);
+businessRouter.post('/createbusiness', createBusiness);
+businessRouter.patch('/updatebusiness/:id',updateBusiness);
+businessRouter.get('/getbusinessbyid/:id',getBusinessById);
+businessRouter.get('/getallbusiness', getAllBusiness);
+businessRouter.delete('/deletebusiness', deleteBusiness);
 
 export default businessRouter;

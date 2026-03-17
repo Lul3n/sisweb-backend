@@ -3,11 +3,11 @@ import {createUser, updateUser, getAllUsers, getUserbyId, getUserbyBusinessId, d
 
 const userRouter:Router = Router();
 
-userRouter.post('./createuser',createUser);
-userRouter.patch('./updateuser/:id', updateUser);
-userRouter.get('./getuserbyid/:id', getUserbyId);
-userRouter.get('./getallusers', getAllUsers);
-userRouter.get('./getuserbybusinessid/:id', getUserbyBusinessId);
-userRouter.delete('./deleteuser', deleteUser);
+userRouter.post('/createuser',createUser);
+userRouter.patch('/updateuser/:id', updateUser);
+userRouter.get('/getuserbyid/:id', getUserbyId);
+userRouter.get('/getallusers', getAllUsers);
+userRouter.get('/getusersbybusinessid/:id', getUserbyBusinessId);
+userRouter.delete('/deleteuser', deleteUser);
 
 export default userRouter;

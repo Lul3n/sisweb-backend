@@ -13,6 +13,11 @@ exports.User = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const business_1 = require("./business");
 let User = class User extends sequelize_typescript_1.Model {
+    static preventAdminChange(instance) {
+        if (instance.changed('isAdmin')) {
+            throw new Error("No tienes permiso para cambiar el estatus de administrador.");
+        }
+    }
 };
 exports.User = User;
 __decorate([
@@ -56,6 +61,12 @@ __decorate([
     (0, sequelize_typescript_1.BelongsTo)(() => business_1.Business),
     __metadata("design:type", business_1.Business)
 ], User.prototype, "business", void 0);
+__decorate([
+    sequelize_typescript_1.BeforeUpdate,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [User]),
+    __metadata("design:returntype", void 0)
+], User, "preventAdminChange", null);
 exports.User = User = __decorate([
     (0, sequelize_typescript_1.Table)({
         tableName: "Users"

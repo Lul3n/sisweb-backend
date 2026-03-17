@@ -9,8 +9,8 @@ const userRoutes_1 = __importDefault(require("./userRoutes"));
 const businessRoutes_1 = __importDefault(require("./businessRoutes"));
 const apiRouter = (0, express_1.Router)();
 apiRouter.use('/product', productRoutes_1.default);
-apiRouter.use('./business', businessRoutes_1.default);
-apiRouter.use('./user', userRoutes_1.default);
+apiRouter.use('/business', businessRoutes_1.default);
+apiRouter.use('/user', userRoutes_1.default);
 apiRouter.get('/', (req, res) => {
     res.send('Hello World!');
 });

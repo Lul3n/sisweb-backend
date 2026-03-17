@@ -7,9 +7,9 @@ const apiRouter:Router = Router();
 
 apiRouter.use('/product', productRoutes)
 
-apiRouter.use('./business', businessRoutes)
+apiRouter.use('/business', businessRoutes)
 
-apiRouter.use('./user', userRoutes)
+apiRouter.use('/user', userRoutes)
 
 apiRouter.get('/', (req:Request, res: Response) => {  
 res.send('Hello World!')  

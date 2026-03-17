@@ -9,7 +9,8 @@ interface UserAttributes{
   lastName: string; 
   number: string ; 
   mail: string ; 
-  isAdmin: boolean ; 
+  isAdmin: boolean ;
+  businessId : number; 
 } 
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'>{} 

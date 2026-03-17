@@ -1,6 +1,5 @@
 import { Request, RequestHandler, Response } from "express";
 import { Business } from "../models/business";
-import { User } from "../models/user";
 import { stat } from "node:fs";
 
 //Create Business
@@ -8,7 +7,7 @@ export const createBusiness : RequestHandler = (req:Request, res:Response) => {
     if(!req.body){
         return res.status(400).json({
             status : "error",
-            message : "User cannot be empty",
+            message : "Business cannot be empty",
             payload : null
         })
     }
@@ -110,7 +109,7 @@ export const deleteBusiness : RequestHandler = async (req:Request, res:Response)
     const {id} = req.body;
 
     try{
-        await Business.destroy({where : id});
+        await Business.destroy({where : {id}});
         res.status(200).json({
             message : "Business delete"
         })
