@@ -8,6 +8,6 @@ userRouter.patch('./updateuser/:id', updateUser);
 userRouter.get('./getuserbyid/:id', getUserbyId);
 userRouter.get('./getallusers', getAllUsers);
 userRouter.get('./getuserbybusinessid/:id', getUserbyBusinessId);
-userRouter.delete('./deleteuser/:id', deleteUser);
+userRouter.delete('./deleteuser', deleteUser);
 
 export default userRouter;
